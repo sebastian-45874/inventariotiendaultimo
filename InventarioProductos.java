@@ -90,6 +90,50 @@ public class InventarioProductos {
         return null;//1
     }
 
+     //busqueda por precio binaria
+    public Producto buscarBinarioPorPrecio(double precio) {
+        int i = 0;
+        int s = inventario.size() - 1;
+        int c;
+
+        while (i <= s) {
+            c = (i + s) / 2;
+            double actual = inventario.get(c).getPrecio();
+
+            if (actual == precio) {
+                return inventario.get(c);
+            } else if (precio < actual) {
+                s = c - 1;
+            } else {
+                i = c + 1;
+            }
+        }
+        return null;
+    }
+    //busqueda por precio lineal
+
+    public Producto buscarPorPrecio(double precio) {
+        for (Producto p : inventario) {
+            if (p.getPrecio() == precio) {
+                return p;
+            }
+        }
+        return null;
+    }
+    //ordenar por precio 
+    public void ordenarPorPrecio() {
+        Producto aux;
+        for (int i = 0; i < inventario.size() - 1; i++) {
+            for (int j = i + 1; j < inventario.size(); j++) {
+                if (inventario.get(i).getPrecio() > inventario.get(j).getPrecio()) {
+                    aux = inventario.get(i);
+                    inventario.set(i, inventario.get(j));
+                    inventario.set(j, aux);
+                }
+            }
+        }
+    }
+
 
     // ==========================================================
     // NUEVO: ORDENAR POR NOMBRE (método burbuja)
