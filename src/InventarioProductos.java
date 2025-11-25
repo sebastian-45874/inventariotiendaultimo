@@ -130,7 +130,7 @@ public class InventarioProductos {
                 i = c + 1;
             }
         }
-        return null;
+        return null;//1
     }
 
 
