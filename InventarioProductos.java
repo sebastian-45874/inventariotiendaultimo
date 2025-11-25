@@ -69,6 +69,28 @@ public class InventarioProductos {
         }
     }
 
+        //busqueda binaria por nombre
+    public Producto buscarBinarioPorNombre(String nombre) {
+        int i = 0;
+        int s = inventario.size() - 1;
+        int c;
+
+        while (i <= s) {
+            c = (i + s) / 2;
+            String actual = inventario.get(c).getNombre();
+
+            if (actual.equalsIgnoreCase(nombre)) {
+                return inventario.get(c);
+            } else if (actual.compareToIgnoreCase(nombre) > 0) {
+                s = c - 1;
+            } else {
+                i = c + 1;
+            }
+        }
+        return null;//1
+    }
+
+
     // ==========================================================
     // NUEVO: ORDENAR POR NOMBRE (método burbuja)
     // ==========================================================
