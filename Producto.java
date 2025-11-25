@@ -15,7 +15,7 @@ public class Ventana {
     private JButton btnDatosAlmacenados;
     private JButton btnOrdenarProducto;
     private JButton btnOrdenarID;
-    private JButton BUSCARPRODUCTOCONMAYORSTOCKButton;
+    private JButton btnBuscarProducto;
     private JComboBox CboProducto;
 
     Inventario inventario = new Inventario();
@@ -86,7 +86,7 @@ public class Ventana {
             }
         });
 
-        BUSCARPRODUCTOCONMAYORSTOCKButton.addActionListener(new ActionListener() {
+        btnBuscarProducto.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Producto mayor = inventario.buscarMayorCantidad();
